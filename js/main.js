@@ -7,6 +7,40 @@ document.addEventListener('DOMContentLoaded', function() {
         mirror: false
     });
 
+    // Swiper Initialization
+    new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+        }
+    });
+
+    // İlk yüklendiğinde Ana Sayfa linkini aktif yap
+    const anaSayfaLink = document.querySelector('a[href="#anasayfa"]');
+    if (anaSayfaLink) {
+        anaSayfaLink.classList.add('active');
+    }
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     const navbarHeight = navbar.offsetHeight;
